@@ -26,3 +26,8 @@ select * from products where quantity order by price limit 3;
 select * from products order by price limit 3,3; 
 
 select * from products order by price limit 6,3; 
+
+-- select Distinct Data
+select category from products order by category; -- akan menampilkan semua data kategory 
+
+select distinct category from products order by category; -- akan menghapus kategori yang duplikat 
