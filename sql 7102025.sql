@@ -43,3 +43,36 @@ from products;
 insert into products (id,name, price, quantity) value ('P0011','es dawet', 20000,1000);
 
 select id, name, ifnull(description, 'sungguh kosong') from products;
+
+-- Aggregate Function
+select count(id) from products; 
+
+select max(price) from products;
+
+select min(price) from products;
+
+select avg(price) from products;
+
+select sum(price) from products;
+
+select sum(quantity) from products;
+
+select avg(quantity) from products;
+
+
+-- Aggregate Function Grouping by
+select count(id) as 'total', category from products group by category; 
+
+select max(price) as 'max price', category from products group by category;
+
+select min(price) as 'min price', category from products group by category;
+
+select avg(price) as 'avg price', category from products group by category;
+
+select sum(price) as 'sum price', category from products group by category;
+
+select sum(quantity) as 'sum quantity', category from products group by category;
+
+select avg(quantity) as 'avg quantity', category from products group by category;
+
+select count(id) as 'total' , category from products group by category having total > 2; 

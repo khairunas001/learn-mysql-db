@@ -45,3 +45,6 @@ where id = 'P0002';
 
 delete from products
 where id = 'P0002';
+
+
+
