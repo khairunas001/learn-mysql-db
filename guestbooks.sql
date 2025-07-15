@@ -56,4 +56,33 @@ select distinct customers.email, guestbooks.email from customers
 left join guestbooks on (guestbooks.email = customers.email)
 where guestbooks.email is null; 
 
+-- START TRANSACTION 
+-- Memulai proses transaksi, proses selanjutnya akan dianggap transaksi sampai perintah COMMIT atau ROLLBACK
+-- COMMIT
+-- Menyimpan secara permanen seluruh proses transaksi
+-- ROLLBACK
+-- Membatalkan secara permanen seluruh proses transaksi
+
+-- jika proses disimpan ke database secara permanen dengan commit 
+start transaction;
+
+INSERT INTO guestbooks (email, title, content) VALUES
+('Ale ale@example.com', 'Hello World', 'This is my first entry in the guestbook.'),
+('sumardhji@example.com', 'Greetings', 'Nice website! I really like the design.'),
+('besmambu@example.com', 'Salam Kenal', 'Senang bisa mampir di sini, sukses terus!');
+
+select * from guestbooks;
+
+commit;
+
+-- jika proses ada yang gagal dan ingin di rollback
+start transaction;
+
+delete from guestbooks;
+
+select * from guestbooks;
+
+rollback;
+      
+
 
