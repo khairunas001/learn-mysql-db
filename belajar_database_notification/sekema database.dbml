@@ -1,0 +1,25 @@
+Table users {
+  id varchar(100) [not null,pk]
+  name varchar(100) [not null]
+}
+
+Table notification {
+  id int [not null, pk, increment]
+  users_id varchar(100) [ref: > users.id]
+  category_id varchar(100) [ref: > category.id ]
+  title varchar(100) [not null]
+  details text [not null]
+  create_at timestamp [not null]
+}
+
+table category{
+  id varchar(100) [not null, pk]
+  name varchar(100) [not null]
+} 
+
+table notification_read{
+  id int [increment,not null, pk]
+  is_read boolean [not null]
+  notification_id int [ref: > notification.id]
+  user_id varchar(100) [ref: > users.id]
+} 
