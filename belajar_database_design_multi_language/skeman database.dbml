@@ -1,0 +1,11 @@
+Table categories{
+  id varchar(100) [pk,not null]
+  posisition int [not null]
+}
+
+table categories_translation{
+  categories_id varchar(100) [pk,not null, ref: > categories.id]
+  language varchar(100) [pk,not null]
+  name varchar(100) [pk,not null]
+  description text
+}
